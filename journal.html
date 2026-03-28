@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Journal - LifeOS</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <nav class="navbar">
+    <h2>LifeOS</h2>
+    <div>
+  <a href="index.html">Home</a>
+  <a href="dashboard.html">Dashboard</a>
+  <a href="journal.html">Journal</a>
+  <a href="profile.html">Profile</a>
+  <a href="about.html">About</a>
+  <a href="login.html">Login</a>
+  <a href="signup.html">Signup</a>
+  <button id="logoutBtn">Logout</button>
+</div>
+  </nav>
+
+  <div class="container">
+    <header>
+      <h1>Daily Reflection</h1>
+      <p>Write your thoughts and track your mindset.</p>
+    </header>
+
+    <section class="card">
+      <textarea id="journalInput" placeholder="Write your thoughts for today..."></textarea>
+      <button id="saveJournalBtn">Save Reflection</button>
+      <p id="savedMessage"></p>
+    </section>
+
+    <script src="config.js"></script>
+<script src="script.js"></script>
+  </div>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Profile - LifeOS</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <nav class="navbar">
+    <h2>LifeOS</h2>
+    <div>
+      <a href="index.html">Home</a>
+      <a href="dashboard.html">Dashboard</a>
+      <a href="journal.html">Journal</a>
+      <a href="profile.html">Profile</a>
+      <a href="about.html">About</a>
+      <a href="login.html">Login</a>
+      <a href="signup.html">Signup</a>
+      <button id="logoutBtn">Logout</button>
+    </div>
+  </nav>
+
+  <div class="container">
+    <header>
+      <h1>User Profile</h1>
+      <p>Your account and activity summary.</p>
+    </header>
+
+    <section class="card">
+      <h2>Profile Details</h2>
+      <p><strong>Name:</strong> <span id="profileName">-</span></p>
+      <p><strong>Email:</strong> <span id="profileEmail">-</span></p>
+    </section>
+
+    <section class="card">
+  <h2>Edit Profile</h2>
+
+  <div class="form-group">
+    <input type="text" id="editName" placeholder="Enter new name" />
+  </div>
+
+  <div class="form-group">
+    <input type="password" id="editPassword" placeholder="Enter new password" />
+  </div>
+
+  <button id="updateProfileBtn">Update Profile</button>
+  <p id="updateProfileMessage"></p>
+</section>
+
+    <section class="card">
+      <h2>Activity Summary</h2>
+      <p><strong>Total Goals:</strong> <span id="profileTotalGoals">0</span></p>
+      <p><strong>Completed Goals:</strong> <span id="profileCompletedGoals">0</span></p>
+      <p><strong>Journal Status:</strong> <span id="profileJournalStatus">No Entry</span></p>
+    </section>
+  </div>
+
+  <footer style="text-align:center; padding:20px;">
+    <p>LifeOS — Built by Patelji</p>
+  </footer>
+
+  <script src="config.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

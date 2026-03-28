@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard - LifeOS</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <nav class="navbar">
+    <h2>LifeOS</h2>
+    <div>
+  <a href="index.html">Home</a>
+  <a href="dashboard.html">Dashboard</a>
+  <a href="journal.html">Journal</a>
+  <a href="profile.html">Profile</a>
+  <a href="about.html">About</a>
+  <a href="login.html">Login</a>
+  <a href="signup.html">Signup</a>
+  <button id="logoutBtn">Logout</button>
+</div>
+  </nav>
+
+  <div class="container">
+    <header>
+      <h1>Dashboard</h1>
+      <p id="currentDate"></p>
+      <p id="welcomeUser"></p>
+    </header>
+
+
+    <section class="summary-grid">
+  <div class="summary-card">
+    <h3>Total Goals</h3>
+    <p id="summaryTotalGoals">0</p>
+  </div>
+
+  <div class="summary-card">
+    <h3>Completed</h3>
+    <p id="summaryCompletedGoals">0</p>
+  </div>
+
+  <div class="summary-card">
+    <h3>Pending</h3>
+    <p id="summaryPendingGoals">0</p>
+  </div>
+
+  <div class="summary-card">
+    <h3>Streak</h3>
+    <p id="summaryStreakDays">1</p>
+  </div>
+</section>
+
+
+
+    <section class="card">
+      <h2>Add Daily Goal</h2>
+      <div class="input-group">
+        <input type="text" id="goalInput" placeholder="Enter your goal" />
+        <button id="addGoalBtn">Add</button>
+      </div>
+    </section>
+    
+
+    <section class="card">
+      <h2>Your Goals</h2>
+      <ul id="goalList"></ul>
+    </section>
+    <section class="card">
+  <button id="clearAllBtn">Clear All Goals</button>
+</section>
+    
+
+    <section class="card">
+      <h2>Progress</h2>
+      
+      <p>Total Goals: <span id="totalGoals">0</span></p>
+      <p>Completed Goals: <span id="completedGoals">0</span></p>
+      
+      <p>Streak Days: <span id="streakDays">1</span></p>
+    </section>
+
+    <section class="card">
+  <h2>Quick Summary</h2>
+  <p>Track your tasks and improve consistency every day.</p>
+</section>
+
+    <script src="config.js"></script>
+<script src="script.js"></script>
+  </div>
+</body>
+</html>
