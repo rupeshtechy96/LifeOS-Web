@@ -42,7 +42,7 @@ const updateProfileBtn = document.getElementById("updateProfileBtn");
 const updateProfileMessage = document.getElementById("updateProfileMessage");
 
 
-
+const API_BASE_URL = "https://lifeos-web-bk4z.onrender.com";
 
 let goals = [];
 let journal = "";
