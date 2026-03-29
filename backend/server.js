@@ -7,6 +7,7 @@ const connectDB = require("./config/db");
 const userRoutes = require("./routes/userRoutes");
 const goalRoutes = require("./routes/goalRoutes");
 const journalRoutes = require("./routes/journalRoutes");
+const feedbackRoutes = require("./routes/feedbackRoutes");
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -29,6 +30,7 @@ app.get("/api/test", (req, res) => {
 app.use("/api", userRoutes);
 app.use("/api/goals", goalRoutes);
 app.use("/api/journal", journalRoutes);
+app.use("/api/feedback", feedbackRoutes);
 
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);

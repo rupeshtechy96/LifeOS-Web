@@ -44,6 +44,18 @@ const progressBar = document.getElementById("progressBar");
 const toggle = document.querySelector(".menu-toggle");
 const navLinks = document.querySelector(".nav-links");
 
+/* Profile dropdown */
+const profileBtn = document.querySelector(".profile-btn");
+const profileDropdown = document.querySelector(".profile-dropdown");
+
+/* Feedback page */
+const feedbackName = document.getElementById("feedbackName");
+const feedbackLocation = document.getElementById("feedbackLocation");
+const feedbackRating = document.getElementById("feedbackRating");
+const feedbackMessage = document.getElementById("feedbackMessage");
+const submitFeedbackBtn = document.getElementById("submitFeedbackBtn");
+const feedbackStatus = document.getElementById("feedbackStatus");
+
 let goals = [];
 let journal = "";
 
@@ -95,9 +107,29 @@ if (welcomeUser && savedUser && isLoggedIn === "true") {
   welcomeUser.textContent = `Welcome, ${savedUser.name}`;
 }
 
+/* Auto-fill feedback name if user is logged in */
+if (savedUser) {
+  if (feedbackName) feedbackName.value = savedUser.name || "";
+}
+
+/* Mobile navbar toggle */
 if (toggle && navLinks) {
   toggle.addEventListener("click", () => {
     navLinks.classList.toggle("active");
+  });
+}
+
+/* Profile dropdown toggle */
+if (profileBtn && profileDropdown) {
+  profileBtn.addEventListener("click", (e) => {
+    e.stopPropagation();
+    profileDropdown.classList.toggle("active");
+  });
+
+  document.addEventListener("click", (e) => {
+    if (!profileDropdown.contains(e.target)) {
+      profileDropdown.classList.remove("active");
+    }
   });
 }
 
@@ -582,6 +614,7 @@ if (updateProfileBtn) {
 
       if (data.user) {
         localStorage.setItem("currentUser", JSON.stringify(data.user));
+        savedUser = data.user;
 
         if (profileName) profileName.textContent = data.user.name;
         if (profileEmail) profileEmail.textContent = data.user.email;
@@ -602,6 +635,81 @@ if (updateProfileBtn) {
   });
 }
 
+/* Feedback submit */
+if (submitFeedbackBtn) {
+  submitFeedbackBtn.addEventListener("click", async (event) => {
+    event.preventDefault();
+
+    const name = feedbackName ? feedbackName.value.trim() : "";
+    const location = feedbackLocation ? feedbackLocation.value.trim() : "";
+    const rating = feedbackRating ? feedbackRating.value.trim() : "";
+    const message = feedbackMessage ? feedbackMessage.value.trim() : "";
+
+    if (!name || !rating || !message) {
+      if (feedbackStatus) {
+        feedbackStatus.textContent = "Please fill name, rating and feedback message.";
+        feedbackStatus.style.color = "red";
+      }
+      return;
+    }
+
+    if (Number(rating) < 1 || Number(rating) > 5) {
+      if (feedbackStatus) {
+        feedbackStatus.textContent = "Rating must be between 1 and 5.";
+        feedbackStatus.style.color = "red";
+      }
+      return;
+    }
+
+    try {
+      const response = await fetch(`${API_BASE_URL}/api/feedback/submit`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          name,
+          location,
+          rating: Number(rating),
+          message
+        })
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        if (feedbackStatus) {
+          feedbackStatus.textContent = data.message || "Failed to submit feedback.";
+          feedbackStatus.style.color = "red";
+        }
+        return;
+      }
+
+      if (feedbackStatus) {
+        feedbackStatus.textContent = data.message || "Feedback submitted successfully.";
+        feedbackStatus.style.color = "lightgreen";
+      }
+
+      if (feedbackRating) feedbackRating.value = "";
+      if (feedbackMessage) feedbackMessage.value = "";
+      if (feedbackLocation) feedbackLocation.value = "";
+
+      if (!savedUser && feedbackName) {
+        feedbackName.value = "";
+      }
+
+      loadFeedbacks();
+    } catch (error) {
+      console.error("Feedback submit error:", error);
+
+      if (feedbackStatus) {
+        feedbackStatus.textContent = "Server error while submitting feedback.";
+        feedbackStatus.style.color = "red";
+      }
+    }
+  });
+}
+
 if (welcomeUser && isLoggedIn !== "true") {
   window.location.href = "login.html";
 }
@@ -616,6 +724,70 @@ if (goalList && savedUser && isLoggedIn === "true") {
 
 if (profileName && savedUser && isLoggedIn === "true") {
   fetchProfileFromBackend();
+}
+
+/* ===========================
+   FEEDBACK DISPLAY SYSTEM
+=========================== */
+
+async function loadFeedbacks() {
+  try {
+    const response = await fetch(`${API_BASE_URL}/api/feedback/all`);
+    const data = await response.json();
+
+    if (!response.ok) {
+      console.error(data.message || "Failed to fetch feedbacks");
+      return;
+    }
+
+    renderFeedbacks(data.feedbacks);
+
+    const avg = document.getElementById("averageRating");
+    const total = document.getElementById("totalReviews");
+
+    if (avg) avg.textContent = `${data.averageRating} ★`;
+    if (total) total.textContent = `${data.totalReviews} Reviews`;
+  } catch (error) {
+    console.error("Error loading feedbacks:", error);
+  }
+}
+
+function renderFeedbacks(feedbacks) {
+  const feedbackList = document.getElementById("feedbackList");
+
+  if (!feedbackList) return;
+
+  feedbackList.innerHTML = "";
+
+  if (!feedbacks || feedbacks.length === 0) {
+    feedbackList.innerHTML = "<p>No feedback yet.</p>";
+    return;
+  }
+
+  feedbacks.forEach((item) => {
+    const card = document.createElement("div");
+    card.classList.add("feedback-card");
+
+    const stars = "★".repeat(item.rating) + "☆".repeat(5 - item.rating);
+
+    card.innerHTML = `
+      <div class="feedback-card-top">
+        <div>
+          <h4>${item.name}</h4>
+          <p class="feedback-location">📍 ${item.location || "Unknown"}</p>
+        </div>
+        <small>${new Date(item.createdAt).toLocaleDateString()}</small>
+      </div>
+      <p class="feedback-stars">${stars}</p>
+      <p class="feedback-message">${item.message}</p>
+    `;
+
+    feedbackList.appendChild(card);
+  });
+}
+
+if (window.location.pathname.endsWith("feedback.html")) {
+  loadFeedbacks();
 }
 
 loadJournal();

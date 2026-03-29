@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Feedback - LifeOS</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-left">
+      <a href="index.html" class="brand">
+        <span class="brand-icon">⚡</span>
+        <span class="brand-text">LifeOS</span>
+      </a>
+    </div>
+
+    <button class="menu-toggle" aria-label="Toggle navigation">☰</button>
+
+    <div class="nav-links">
+      <a href="index.html">🏠 Home</a>
+      <a href="dashboard.html">📊 Dashboard</a>
+      <a href="journal.html">📓 Journal</a>
+      <a href="profile.html">👤 Profile</a>
+      <a href="about.html">ℹ️ About</a>
+      <a href="feedback.html" class="active-link">💬 Feedback</a>
+      <a href="login.html">Login</a>
+      <a href="signup.html">Signup</a>
+      <button id="logoutBtn">Logout</button>
+    </div>
+  </nav>
+
+  <div class="container feedback-page-container">
+    <!-- Top Banner -->
+    <header class="dashboard-hero card feedback-top-banner">
+      <h1>💬 User Feedback</h1>
+      <p>See what users think about LifeOS and share your experience.</p>
+      <p class="dashboard-subtext">Simple, clear, and helpful reviews in one place.</p>
+    </header>
+
+    <!-- Main 2 Column Layout -->
+    <section class="feedback-main-layout">
+      <!-- LEFT SIDE: Combined Section -->
+      <div class="feedback-combined-panel card">
+        <div class="feedback-summary-block">
+          <div class="section-heading">
+            <h2>Overall Feedback</h2>
+            <p>Quick summary of all reviews.</p>
+          </div>
+
+          <div class="feedback-summary">
+            <h3 id="averageRating">0.0 ★</h3>
+            <p id="totalReviews">0 Reviews</p>
+            <p class="feedback-note">Trusted by users who want to organize life better.</p>
+          </div>
+        </div>
+
+        <div class="feedback-divider"></div>
+
+        <div class="feedback-form-block">
+          <div class="section-heading">
+            <h2>Send Feedback</h2>
+            <p>Share your opinion in a simple way.</p>
+          </div>
+
+          <form id="feedbackForm">
+            <div class="form-group">
+              <input type="text" id="feedbackName" placeholder="Enter your name" required />
+            </div>
+
+            <div class="form-group">
+              <input type="text" id="feedbackLocation" placeholder="Enter your location" />
+            </div>
+
+            <div class="form-group">
+              <input
+                type="number"
+                id="feedbackRating"
+                placeholder="Rating out of 5"
+                min="1"
+                max="5"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <textarea
+                id="feedbackMessage"
+                placeholder="Write your feedback here..."
+                required
+              ></textarea>
+            </div>
+
+            <button type="submit" id="submitFeedbackBtn">Submit Feedback</button>
+            <p id="feedbackStatus"></p>
+          </form>
+        </div>
+      </div>
+
+      <!-- RIGHT SIDE: Reviews -->
+      <div class="feedback-review-panel card">
+        <div class="section-heading feedback-heading-row">
+          <div>
+            <h2>User Reviews</h2>
+            <p>Latest reviews from different users.</p>
+          </div>
+        </div>
+
+        <div id="feedbackList" class="feedback-list scrollable-feedback-list">
+          <p>No feedback yet.</p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <footer class="footer">
+    <p>⚡ LifeOS — Built by Patelji</p>
+  </footer>
+
+  <script src="config.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
