@@ -98,13 +98,13 @@ const loginUser = async (req, res) => {
 
 const getProfile = async (req, res) => {
   try {
-      const userEmail = req.params.email;
-      
-      if (req.user.email !== userEmail) {
-  return res.status(403).json({
-    message: "Access denied. You can only view your own profile."
-  });
-}
+    const userEmail = req.params.email;
+
+    if (req.user.email !== userEmail) {
+      return res.status(403).json({
+        message: "Access denied. You can only view your own profile."
+      });
+    }
 
     const user = await User.findOne({ email: userEmail });
 
@@ -139,10 +139,60 @@ const getProfile = async (req, res) => {
   }
 };
 
+const updateProfile = async (req, res) => {
+  try {
+    const { email, name, password } = req.body;
 
+    if (!email) {
+      return res.status(400).json({
+        message: "Email is required"
+      });
+    }
+
+    if (req.user.email !== email) {
+      return res.status(403).json({
+        message: "Access denied. You can only update your own profile."
+      });
+    }
+
+    const user = await User.findOne({ email });
+
+    if (!user) {
+      return res.status(404).json({
+        message: "User not found"
+      });
+    }
+
+    if (name && name.trim() !== "") {
+      user.name = name.trim();
+    }
+
+    if (password && password.trim() !== "") {
+      const hashedPassword = await bcrypt.hash(password, 10);
+      user.password = hashedPassword;
+    }
+
+    await user.save();
+
+    res.status(200).json({
+      message: "Profile updated successfully",
+      user: {
+        id: user._id,
+        name: user.name,
+        email: user.email
+      }
+    });
+  } catch (error) {
+    console.error("Update profile error:", error);
+    res.status(500).json({
+      message: "Server error while updating profile"
+    });
+  }
+};
 
 module.exports = {
   signupUser,
   loginUser,
-  getProfile
+  getProfile,
+  updateProfile
 };

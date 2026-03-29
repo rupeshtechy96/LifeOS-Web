@@ -4,30 +4,48 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Signup - LifeOS</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+
   <nav class="navbar">
-    <h2>LifeOS</h2>
-    <div>
-      <a href="index.html">Home</a>
-      <a href="dashboard.html">Dashboard</a>
-      <a href="journal.html">Journal</a>
-      <a href="profile.html">Profile</a>
-      <a href="about.html">About</a>
+    <h2 class="logo">⚡ LifeOS</h2>
+    <button class="menu-toggle">☰</button>
+
+    <div class="nav-links">
+      <a href="index.html">🏠 Home</a>
+      <a href="dashboard.html">📊 Dashboard</a>
+      <a href="journal.html">📓 Journal</a>
+      <a href="profile.html">👤 Profile</a>
+      <a href="about.html">ℹ️ About</a>
       <a href="login.html">Login</a>
       <a href="signup.html">Signup</a>
       <button id="logoutBtn">Logout</button>
     </div>
   </nav>
 
-  <div class="container">
-    <header>
-      <h1>Create Account</h1>
-      <p>Sign up to start your discipline journey.</p>
+  <div class="container auth-container">
+
+    <header class="dashboard-hero card">
+      <h1>🚀 Create Account</h1>
+      <p>Start your discipline and productivity journey with LifeOS.</p>
+      <p class="dashboard-subtext">
+        Build habits. Track progress. Improve every day.
+      </p>
     </header>
 
-    <section class="card">
+    <section class="card auth-card">
+
+      <div class="section-heading">
+        <h2>Join LifeOS</h2>
+        <p>Create your account to begin tracking your goals.</p>
+      </div>
+
       <div class="form-group">
         <input type="text" id="signupName" placeholder="Enter your name" />
       </div>
@@ -40,16 +58,24 @@
         <input type="password" id="signupPassword" placeholder="Enter your password" />
       </div>
 
-      <button id="signupBtn">Sign Up</button>
+      <button id="signupBtn">✨ Create Account</button>
       <p id="signupMessage"></p>
+
+      <p class="auth-switch-text">
+        Already have an account?
+        <a href="login.html">Login here</a>
+      </p>
+
     </section>
+
   </div>
 
-  <footer style="text-align:center; padding:20px;">
-    <p>LifeOS — Built by Patelji</p>
+  <footer class="footer">
+    <p>⚡ LifeOS — Built by Patelji</p>
   </footer>
 
   <script src="config.js"></script>
-<script src="script.js"></script>
+  <script src="script.js"></script>
+
 </body>
 </html>

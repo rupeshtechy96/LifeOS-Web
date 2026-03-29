@@ -4,89 +4,127 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Dashboard - LifeOS</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <nav class="navbar">
-    <h2>LifeOS</h2>
-    <div>
-  <a href="index.html">Home</a>
-  <a href="dashboard.html">Dashboard</a>
-  <a href="journal.html">Journal</a>
-  <a href="profile.html">Profile</a>
-  <a href="about.html">About</a>
-  <a href="login.html">Login</a>
-  <a href="signup.html">Signup</a>
-  <button id="logoutBtn">Logout</button>
-</div>
+    <h2 class="logo">⚡ LifeOS</h2>
+    <button class="menu-toggle">☰</button>
+
+    <div class="nav-links">
+      <a href="index.html">🏠 Home</a>
+      <a href="dashboard.html">📊 Dashboard</a>
+      <a href="journal.html">📓 Journal</a>
+      <a href="profile.html">👤 Profile</a>
+      <a href="about.html">ℹ️ About</a>
+      <a href="login.html">Login</a>
+      <a href="signup.html">Signup</a>
+      <button id="logoutBtn">Logout</button>
+    </div>
   </nav>
 
-  <div class="container">
-    <header>
-      <h1>Dashboard</h1>
-      <p id="currentDate"></p>
-      <p id="welcomeUser"></p>
-    </header>
+  <div class="container dashboard-container">
 
+    <section class="dashboard-premium-hero">
+      <div class="dashboard-premium-left">
+        <div class="dashboard-badge">✨ Smart Productivity Space</div>
+        <h1>Stay Focused. Stay Consistent.</h1>
+        <p class="dashboard-premium-text">
+          Plan your day, complete goals, and build daily discipline with clarity.
+        </p>
 
-    <section class="summary-grid">
-  <div class="summary-card">
-    <h3>Total Goals</h3>
-    <p id="summaryTotalGoals">0</p>
-  </div>
+        <div class="dashboard-meta">
+          <div class="dashboard-meta-item">
+            <span class="meta-label">👋 Welcome</span>
+            <strong id="welcomeUser">Welcome</strong>
+          </div>
 
-  <div class="summary-card">
-    <h3>Completed</h3>
-    <p id="summaryCompletedGoals">0</p>
-  </div>
+          <div class="dashboard-meta-item">
+            <span class="meta-label">📅 Today</span>
+            <strong id="currentDate"></strong>
+          </div>
+        </div>
+      </div>
 
-  <div class="summary-card">
-    <h3>Pending</h3>
-    <p id="summaryPendingGoals">0</p>
-  </div>
-
-  <div class="summary-card">
-    <h3>Streak</h3>
-    <p id="summaryStreakDays">1</p>
-  </div>
-</section>
-
-
-
-    <section class="card">
-      <h2>Add Daily Goal</h2>
-      <div class="input-group">
-        <input type="text" id="goalInput" placeholder="Enter your goal" />
-        <button id="addGoalBtn">Add</button>
+      <div class="dashboard-premium-right">
+        <a href="#goalManagerSection" class="premium-action-btn">➕ Add Goal</a>
+        <a href="journal.html" class="premium-action-btn premium-action-btn-outline">📓 Journal</a>
       </div>
     </section>
-    
 
-    <section class="card">
-      <h2>Your Goals</h2>
-      <ul id="goalList"></ul>
+    <section class="premium-summary-grid">
+      <div class="premium-summary-card">
+        <div class="premium-summary-icon">🎯</div>
+        <div>
+          <p>Total Goals</p>
+          <h3 id="summaryTotalGoals">0</h3>
+        </div>
+      </div>
+
+      <div class="premium-summary-card">
+        <div class="premium-summary-icon">✅</div>
+        <div>
+          <p>Completed</p>
+          <h3 id="summaryCompletedGoals">0</h3>
+        </div>
+      </div>
+
+      <div class="premium-summary-card">
+        <div class="premium-summary-icon">⏳</div>
+        <div>
+          <p>Pending</p>
+          <h3 id="summaryPendingGoals">0</h3>
+        </div>
+      </div>
+
+      <div class="premium-summary-card">
+        <div class="premium-summary-icon">🔥</div>
+        <div>
+          <p>Streak</p>
+          <h3 id="summaryStreakDays">1</h3>
+        </div>
+      </div>
     </section>
-    <section class="card">
-  <button id="clearAllBtn">Clear All Goals</button>
-</section>
-    
 
-    <section class="card">
-      <h2>Progress</h2>
-      
-      <p>Total Goals: <span id="totalGoals">0</span></p>
-      <p>Completed Goals: <span id="completedGoals">0</span></p>
-      
-      <p>Streak Days: <span id="streakDays">1</span></p>
+    <section class="dashboard-single-column">
+      <section class="card dashboard-premium-card" id="goalManagerSection">
+        <div class="section-heading premium-heading">
+          <h2>📌 Today’s Goals</h2>
+          <p>Add, manage, and complete your daily priorities in one place.</p>
+        </div>
+
+        <div class="input-group premium-input-group dashboard-goal-input-row">
+          <input type="text" id="goalInput" placeholder="What do you want to complete today?" />
+          <button id="addGoalBtn">Add Goal</button>
+        </div>
+
+        <div class="goal-list-wrapper">
+          <ul id="goalList"></ul>
+        </div>
+
+        <div class="dashboard-bottom-actions">
+          <button id="clearAllBtn">🗑 Clear All Goals</button>
+        </div>
+      </section>
     </section>
 
-    <section class="card">
-  <h2>Quick Summary</h2>
-  <p>Track your tasks and improve consistency every day.</p>
-</section>
+    <div style="display:none;">
+      <span id="totalGoals">0</span>
+      <span id="completedGoals">0</span>
+      <span id="streakDays">1</span>
+      <div class="progress-bar-container">
+        <div id="progressBar"></div>
+      </div>
+    </div>
 
-    <script src="config.js"></script>
-<script src="script.js"></script>
   </div>
+
+  <script src="config.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>

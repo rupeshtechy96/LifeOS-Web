@@ -4,17 +4,24 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Profile - LifeOS</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <nav class="navbar">
-    <h2>LifeOS</h2>
-    <div>
-      <a href="index.html">Home</a>
-      <a href="dashboard.html">Dashboard</a>
-      <a href="journal.html">Journal</a>
-      <a href="profile.html">Profile</a>
-      <a href="about.html">About</a>
+    <h2 class="logo">⚡ LifeOS</h2>
+    <button class="menu-toggle">☰</button>
+
+    <div class="nav-links">
+      <a href="index.html">🏠 Home</a>
+      <a href="dashboard.html">📊 Dashboard</a>
+      <a href="journal.html">📓 Journal</a>
+      <a href="profile.html">👤 Profile</a>
+      <a href="about.html">ℹ️ About</a>
       <a href="login.html">Login</a>
       <a href="signup.html">Signup</a>
       <button id="logoutBtn">Logout</button>
@@ -22,45 +29,70 @@
   </nav>
 
   <div class="container">
-    <header>
-      <h1>User Profile</h1>
-      <p>Your account and activity summary.</p>
+    <header class="dashboard-hero card">
+      <h1>👤 User Profile</h1>
+      <p>Manage your account and review your productivity summary.</p>
+      <p class="dashboard-subtext">Your progress and identity within LifeOS.</p>
     </header>
 
     <section class="card">
-      <h2>Profile Details</h2>
+      <div class="section-heading">
+        <h2>📋 Profile Details</h2>
+        <p>Your registered account information.</p>
+      </div>
+
       <p><strong>Name:</strong> <span id="profileName">-</span></p>
       <p><strong>Email:</strong> <span id="profileEmail">-</span></p>
     </section>
 
     <section class="card">
-  <h2>Edit Profile</h2>
+      <div class="section-heading">
+        <h2>✏️ Edit Profile</h2>
+        <p>Update your personal information.</p>
+      </div>
 
-  <div class="form-group">
-    <input type="text" id="editName" placeholder="Enter new name" />
-  </div>
+      <div class="form-group">
+        <input type="text" id="editName" placeholder="Enter new name" />
+      </div>
 
-  <div class="form-group">
-    <input type="password" id="editPassword" placeholder="Enter new password" />
-  </div>
+      <div class="form-group">
+        <input type="password" id="editPassword" placeholder="Enter new password" />
+      </div>
 
-  <button id="updateProfileBtn">Update Profile</button>
-  <p id="updateProfileMessage"></p>
-</section>
+      <button id="updateProfileBtn">💾 Update Profile</button>
+      <p id="updateProfileMessage"></p>
+    </section>
 
     <section class="card">
-      <h2>Activity Summary</h2>
-      <p><strong>Total Goals:</strong> <span id="profileTotalGoals">0</span></p>
-      <p><strong>Completed Goals:</strong> <span id="profileCompletedGoals">0</span></p>
-      <p><strong>Journal Status:</strong> <span id="profileJournalStatus">No Entry</span></p>
+      <div class="section-heading">
+        <h2>📊 Activity Summary</h2>
+        <p>Your progress inside LifeOS.</p>
+      </div>
+
+      <div class="progress-stats">
+        <div class="progress-item">
+          <span>Total Goals</span>
+          <strong id="profileTotalGoals">0</strong>
+        </div>
+
+        <div class="progress-item">
+          <span>Completed Goals</span>
+          <strong id="profileCompletedGoals">0</strong>
+        </div>
+
+        <div class="progress-item">
+          <span>Journal Status</span>
+          <strong id="profileJournalStatus">No Entry</strong>
+        </div>
+      </div>
     </section>
   </div>
 
-  <footer style="text-align:center; padding:20px;">
-    <p>LifeOS — Built by Patelji</p>
+  <footer class="footer">
+    <p>⚡ LifeOS — Built by Patelji</p>
   </footer>
 
   <script src="config.js"></script>
-<script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>

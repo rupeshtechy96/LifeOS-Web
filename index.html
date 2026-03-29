@@ -4,45 +4,101 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>LifeOS</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <nav class="navbar">
-  <h2>LifeOS</h2>
-  <div>
-  <a href="index.html">Home</a>
-  <a href="dashboard.html">Dashboard</a>
-  <a href="journal.html">Journal</a>
-  <a href="profile.html">Profile</a>
-  <a href="about.html">About</a>
-  <a href="login.html">Login</a>
-  <a href="signup.html">Signup</a>
-  <button id="logoutBtn">Logout</button>
-</div>
+
+  <div class="nav-left">
+    <a href="index.html" class="brand">
+      <span class="brand-icon">⚡</span>
+      <span class="brand-text">LifeOS</span>
+    </a>
+
+    <div class="nav-links">
+      <a href="index.html">🏠 Home</a>
+      <a href="dashboard.html">📊 Dashboard</a>
+      <a href="journal.html">📓 Journal</a>
+      <a href="about.html">ℹ️ About</a>
+    </div>
+  </div>
+
+  <div class="nav-right">
+
+    <div class="profile-dropdown">
+
+      <button class="profile-btn">
+        👤 Profile ▾
+      </button>
+
+      <div class="dropdown-menu">
+        <a href="profile.html">👤 My Profile</a>
+        <button id="logoutBtn">Logout</button>
+      </div>
+
+    </div>
+
+  </div>
+
 </nav>
+
   <div class="container">
-    <header>
-      <h1>LifeOS</h1>
-      <p>Your personal discipline and productivity website.</p>
+    <header class="hero-section home-hero">
+      <div class="hero-badge">✨ Personal Productivity System</div>
+
+      <h1 class="hero-title">
+        Organize Your Day <br>
+        Build Better Discipline
+      </h1>
+
+      <p class="hero-tagline">
+        Track goals, write reflections, and stay consistent every day.
+      </p>
+
+      <div class="hero-buttons">
+        <a href="dashboard.html">
+          <button class="primary-btn">🚀 Start Tracking</button>
+        </a>
+
+        <a href="signup.html">
+          <button class="secondary-btn">Create Account</button>
+        </a>
+      </div>
     </header>
 
-    <section class="card">
-      <h2>Welcome</h2>
-      <p>Track your goals, save reflections, and improve daily consistency.</p>
-      <a href="dashboard.html"><button>Go to Dashboard</button></a>
-    </section>
+    <section class="home-stats">
+      <div class="mini-card">
+        <span>🎯</span>
+        <h3>Goals</h3>
+      </div>
 
-    <section class="card">
-      <h2>Pages</h2>
-      <p><a href="dashboard.html">Dashboard</a></p>
-      <p><a href="journal.html">Journal</a></p>
-      <p><a href="about.html">About</a></p>
+      <div class="mini-card">
+        <span>📓</span>
+        <h3>Journal</h3>
+      </div>
+
+      <div class="mini-card">
+        <span>📈</span>
+        <h3>Progress</h3>
+      </div>
+
+      <div class="mini-card">
+        <span>🔥</span>
+        <h3>Discipline</h3>
+      </div>
     </section>
   </div>
 
-  <footer style="text-align:center; padding:20px;">
-  <p>LifeOS — Built by Patelji</p>
-</footer>
+  <footer class="footer">
+    <p>⚡ LifeOS — Built by Patelji</p>
+  </footer>
 
+  <script src="config.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>

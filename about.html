@@ -4,35 +4,105 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>About - LifeOS</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div>
-  <a href="index.html">Home</a>
-  <a href="dashboard.html">Dashboard</a>
-  <a href="journal.html">Journal</a>
-  <a href="profile.html">Profile</a>
-  <a href="about.html">About</a>
-  <a href="login.html">Login</a>
-  <a href="signup.html">Signup</a>
-  <button id="logoutBtn">Logout</button>
-</div>
+  <nav class="navbar">
+    <h2 class="logo">⚡ LifeOS</h2>
+    <button class="menu-toggle">☰</button>
+
+    <div class="nav-links">
+      <a href="index.html">🏠 Home</a>
+      <a href="dashboard.html">📊 Dashboard</a>
+      <a href="journal.html">📓 Journal</a>
+      <a href="profile.html">👤 Profile</a>
+      <a href="about.html">ℹ️ About</a>
+      <a href="login.html">Login</a>
+      <a href="signup.html">Signup</a>
+      <button id="logoutBtn">Logout</button>
+    </div>
   </nav>
 
   <div class="container">
-    <header>
-      <h1>About LifeOS</h1>
+    <header class="dashboard-hero card">
+      <h1>ℹ️ About LifeOS</h1>
+      <p>Your personal productivity and discipline management system.</p>
+      <p class="dashboard-subtext">Designed to help users build consistency and improve daily habits.</p>
     </header>
 
     <section class="card">
+      <div class="section-heading">
+        <h2>🚀 What is LifeOS?</h2>
+      </div>
+
       <p>
-        LifeOS is a personal discipline tracker website made to help users
-        manage goals, reflections, and consistency in daily life.
+        LifeOS is a personal discipline tracker designed to help users manage
+        their daily goals, track productivity, and maintain consistent habits.
       </p>
+
       <p>
-        This project is built using HTML, CSS, JavaScript, and browser storage.
+        It provides a structured system where users can define goals, monitor
+        their progress, and reflect on their daily experiences.
+      </p>
+    </section>
+
+    <section class="card">
+      <div class="section-heading">
+        <h2>🎯 Core Features</h2>
+      </div>
+
+      <div class="progress-stats">
+        <div class="progress-item">
+          <span>Goal Tracking</span>
+          <strong>Daily Tasks</strong>
+        </div>
+
+        <div class="progress-item">
+          <span>Journal System</span>
+          <strong>Reflection</strong>
+        </div>
+
+        <div class="progress-item">
+          <span>Progress Tracking</span>
+          <strong>Consistency</strong>
+        </div>
+      </div>
+    </section>
+
+    <section class="card">
+      <div class="section-heading">
+        <h2>🛠 Technology Stack</h2>
+      </div>
+
+      <p>LifeOS is built using modern web technologies:</p>
+
+      <ul class="about-list">
+        <li>HTML – Page structure</li>
+        <li>CSS – UI styling and layout</li>
+        <li>JavaScript – Application logic</li>
+        <li>Local Storage / Backend API – Data persistence</li>
+      </ul>
+    </section>
+
+    <section class="card quote-card">
+      <div class="section-heading">
+        <h2>💡 Project Vision</h2>
+      </div>
+
+      <p class="quote-text">
+        LifeOS aims to become a personal operating system for self-discipline,
+        helping users build better habits, track progress, and grow every day.
       </p>
     </section>
   </div>
+
+  <footer class="footer">
+    <p>⚡ LifeOS — Built by Patelji</p>
+  </footer>
 </body>
 </html>
