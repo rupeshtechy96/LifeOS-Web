@@ -1,4 +1,7 @@
 🚀 LifeOS – Productivity & Self-Improvement Web Platform
+
+Websites Link --> https://life-os-web-mu.vercel.app
+
 LifeOS is a full-stack productivity web application designed to help users manage their goals, track progress, and maintain daily reflections.
 The platform allows users to:
 create personal goals
@@ -91,7 +94,7 @@ LifeOS
 ⚙️ Installation Guide
 
 1️⃣ Clone Repository
-git clone https://github.com/rupeshtechy96/Lifeos-website.git
+
 
 2️⃣ Navigate to project
 cd Lifeos-website
