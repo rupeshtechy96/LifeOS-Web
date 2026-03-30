@@ -2,7 +2,7 @@ const Feedback = require("../models/Feedback");
 
 const submitFeedback = async (req, res) => {
   try {
-    const { name, location, rating, message } = req.body;
+    const { name, rating, message } = req.body;
 
     if (!name || !rating || !message) {
       return res.status(400).json({
@@ -11,7 +11,9 @@ const submitFeedback = async (req, res) => {
       });
     }
 
-    if (rating < 1 || rating > 5) {
+    const numericRating = Number(rating);
+
+    if (numericRating < 1 || numericRating > 5) {
       return res.status(400).json({
         success: false,
         message: "Rating must be between 1 and 5"
@@ -19,10 +21,9 @@ const submitFeedback = async (req, res) => {
     }
 
     const feedback = new Feedback({
-      name,
-      location: location || "Unknown",
-      rating,
-      message
+      name: name.trim(),
+      rating: numericRating,
+      message: message.trim()
     });
 
     const savedFeedback = await feedback.save();
@@ -51,6 +52,8 @@ const getAllFeedbacks = async (req, res) => {
     if (totalReviews > 0) {
       const totalRating = feedbacks.reduce((sum, item) => sum + item.rating, 0);
       averageRating = (totalRating / totalReviews).toFixed(1);
+    } else {
+      averageRating = "0.0";
     }
 
     res.status(200).json({
