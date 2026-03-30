@@ -50,7 +50,6 @@ const profileDropdown = document.querySelector(".profile-dropdown");
 
 /* Feedback page */
 const feedbackName = document.getElementById("feedbackName");
-const feedbackLocation = document.getElementById("feedbackLocation");
 const feedbackRating = document.getElementById("feedbackRating");
 const feedbackMessage = document.getElementById("feedbackMessage");
 const submitFeedbackBtn = document.getElementById("submitFeedbackBtn");
@@ -641,7 +640,6 @@ if (submitFeedbackBtn) {
     event.preventDefault();
 
     const name = feedbackName ? feedbackName.value.trim() : "";
-    const location = feedbackLocation ? feedbackLocation.value.trim() : "";
     const rating = feedbackRating ? feedbackRating.value.trim() : "";
     const message = feedbackMessage ? feedbackMessage.value.trim() : "";
 
@@ -669,7 +667,6 @@ if (submitFeedbackBtn) {
         },
         body: JSON.stringify({
           name,
-          location,
           rating: Number(rating),
           message
         })
@@ -692,7 +689,6 @@ if (submitFeedbackBtn) {
 
       if (feedbackRating) feedbackRating.value = "";
       if (feedbackMessage) feedbackMessage.value = "";
-      if (feedbackLocation) feedbackLocation.value = "";
 
       if (!savedUser && feedbackName) {
         feedbackName.value = "";
@@ -768,18 +764,19 @@ function renderFeedbacks(feedbacks) {
     const card = document.createElement("div");
     card.classList.add("feedback-card");
 
-    const stars = "★".repeat(item.rating) + "☆".repeat(5 - item.rating);
+    const ratingNumber = Number(item.rating) || 0;
+    const stars = "★".repeat(ratingNumber) + "☆".repeat(5 - ratingNumber);
+    const reviewMessage = item.message ? item.message : "No message provided.";
 
     card.innerHTML = `
       <div class="feedback-card-top">
         <div>
           <h4>${item.name}</h4>
-          <p class="feedback-location">📍 ${item.location || "Unknown"}</p>
         </div>
         <small>${new Date(item.createdAt).toLocaleDateString()}</small>
       </div>
       <p class="feedback-stars">${stars}</p>
-      <p class="feedback-message">${item.message}</p>
+      <p class="feedback-message">${reviewMessage}</p>
     `;
 
     feedbackList.appendChild(card);

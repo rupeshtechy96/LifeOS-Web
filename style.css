@@ -981,17 +981,10 @@ li:hover {
 }
 
 .feedback-card h4 {
-  margin: 0 0 2px 0;
+  margin: 0;
   font-size: 1.08rem;
   font-weight: 700;
   color: var(--text);
-}
-
-.feedback-location {
-  margin: 0 !important;
-  font-size: 0.88rem;
-  color: #93c5fd !important;
-  line-height: 1.4;
 }
 
 .feedback-stars {
@@ -1007,6 +1000,7 @@ li:hover {
   line-height: 1.7;
   color: #dbe4f0;
   text-align: justify;
+  word-break: break-word;
 }
 
 .feedback-card small {

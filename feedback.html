@@ -45,7 +45,7 @@
 
     <!-- Main 2 Column Layout -->
     <section class="feedback-main-layout">
-      <!-- LEFT SIDE: Combined Section -->
+      <!-- LEFT SIDE -->
       <div class="feedback-combined-panel card">
         <div class="feedback-summary-block">
           <div class="section-heading">
@@ -70,11 +70,12 @@
 
           <form id="feedbackForm">
             <div class="form-group">
-              <input type="text" id="feedbackName" placeholder="Enter your name" required />
-            </div>
-
-            <div class="form-group">
-              <input type="text" id="feedbackLocation" placeholder="Enter your location" />
+              <input
+                type="text"
+                id="feedbackName"
+                placeholder="Enter your name"
+                required
+              />
             </div>
 
             <div class="form-group">
@@ -102,7 +103,7 @@
         </div>
       </div>
 
-      <!-- RIGHT SIDE: Reviews -->
+      <!-- RIGHT SIDE -->
       <div class="feedback-review-panel card">
         <div class="section-heading feedback-heading-row">
           <div>
@@ -112,6 +113,20 @@
         </div>
 
         <div id="feedbackList" class="feedback-list scrollable-feedback-list">
+          <!-- Example review card structure -->
+          <!--
+          <div class="feedback-item">
+            <div class="feedback-item-top">
+              <h3 class="review-user-name">Rupesh Patel</h3>
+              <span class="review-date">3/31/2026</span>
+            </div>
+            <div class="feedback-item-middle">
+              <span class="review-rating">4.4 ★</span>
+            </div>
+            <p class="review-message">This website really helped me manage tasks and stay organized.</p>
+          </div>
+          -->
+
           <p>No feedback yet.</p>
         </div>
       </div>
