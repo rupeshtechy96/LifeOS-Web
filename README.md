@@ -138,6 +138,7 @@ Journal
 - Mobile app
 
 👨‍💻 Author
+
 - Rupesh Patel
 - GitHub: https://github.com/rupeshtechy96
 - Linkedin: https://www.linkedin.com/in/rupeshtechy/
