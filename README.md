@@ -16,6 +16,7 @@ LifeOS is a full-stack web application that helps users manage goals, track prog
 
 <img width="900" height="500" alt="image" src="https://github.com/user-attachments/assets/bdb6a450-0b28-4e5e-af7a-8860997388a7" />
 
+<br>
 
 <img width="900" height="500" alt="image" src="https://github.com/user-attachments/assets/90ab8e76-f18d-481a-9678-b5d69ae710af" />
 
